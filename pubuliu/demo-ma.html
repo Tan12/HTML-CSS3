@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>瀑布流布局</title>
+    <style>
+        body{
+          padding: 0;
+          text-align: center;
+          margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+      <div class="grid-item">
+        <img src="imgs/1.jpg" />
+      </div>
+      <div class="grid-item">
+        <img src="imgs/2.jpg" />
+      </div>
+      <div class="grid-item">
+        <img src="imgs/3.jpg" />
+      </div>
+      <div class="grid-item">
+        <img src="imgs/4.jpg" />
+      </div>
+      <div class="grid-item">
+        <img src="imgs/5.jpg" />
+      </div>
+      <div class="grid-item">
+        <img src="imgs/6.jpg" />
+      </div>
+      <div class="grid-item">
+        <img src="imgs/7.jpg" />
+      </div>
+      <div class="grid-item">
+        <img src="imgs/8.jpg" />
+      </div>
+      <div class="grid-item">
+        <img src="imgs/9.jpg" />
+      </div>
+      <div class="grid-item">
+        <img src="imgs/10.jpg" />
+      </div>
+    </div>
+
+    <script src="../jquery-3.1.1.min.js"></script>
+    <script src="masonry.pkgd.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.grid').masonry({
+              itemSelector : '.grid-item',
+              columnWidth : 200
+            });
+        });
+    </script>
+</body>
+</html>
