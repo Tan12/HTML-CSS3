@@ -8,17 +8,20 @@
       margin: 0;
       padding: 0;
     }
-      .container{
-        position: relative;
-        text-align: center; //设置text-align的同时要将margin值也同时设置了之后居中的效果才会生效
-        margin: 0 auto;
-      }
-      .item{
-        padding: 10px;
-        border: 1px solid #ccc;
-        margin: 10px 10px;
-        float: left;
-      }
+    .container{
+      position: relative;
+      text-align: center; //设置text-align的同时要将margin值也同时设置了之后居中的效果才会生效
+      margin: 0 auto;
+    }
+    .item{
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin: 10px 10px;
+      float: left;
+    }
+    .hide{
+      display: none;
+    }
     </style>
 </head>
 <body>
@@ -55,30 +58,144 @@
       <img src="imgs/8.jpg" />
       <p>img8</p>
     </div>
+    <div class="item">
+      <img src="imgs/9.jpg" />
+      <p>img9</p>
+    </div>
+    <div class="item">
+      <img src="imgs/10.jpg" />
+      <p>img10</p>
+    </div>
+    <div class="item">
+      <img src="imgs/11.jpg" />
+      <p>img11</p>
+    </div>
+    <div class="item">
+      <img src="imgs/12.jpg" />
+      <p>img12</p>
+    </div>
+    <div class="item">
+      <img src="imgs/13.jpg" />
+      <p>img13</p>
+    </div>
+    <div class="item">
+      <img src="imgs/14.jpg" />
+      <p>img14</p>
+    </div>
+    <div class="item">
+      <img src="imgs/15.jpg" />
+      <p>img15</p>
+    </div>
+    <div class="item">
+      <img src="imgs/16.jpg" />
+      <p>img16</p>
+    </div>
+
+    <div class="hide">
+      <div class="item">
+        <img src="imgs/1.jpg" />
+        <p>img1</p>
+      </div>
+      <div class="item">
+        <img src="imgs/2.jpg" />
+        <p>img2</p>
+      </div>
+      <div class="item">
+        <img src="imgs/3.jpg" />
+        <p>img3</p>
+      </div>
+      <div class="item">
+        <img src="imgs/4.jpg" />
+        <p>img4</p>
+      </div>
+      <div class="item">
+        <img src="imgs/5.jpg" />
+        <p>img5</p>
+      </div>
+      <div class="item">
+        <img src="imgs/6.jpg" />
+        <p>img6</p>
+      </div>
+      <div class="item">
+        <img src="imgs/7.jpg" />
+        <p>img7</p>
+      </div>
+      <div class="item">
+        <img src="imgs/8.jpg" />
+        <p>img8</p>
+      </div>
+      <div class="item">
+        <img src="imgs/9.jpg" />
+        <p>img9</p>
+      </div>
+      <div class="item">
+        <img src="imgs/10.jpg" />
+        <p>img11</p>
+      </div>
+    </div>
+
   </div>
 
   <script src="../jquery-3.1.1.min.js"></script>
   <script>
+
+    /*
+     问题1：当改变浏览器窗口的大小时，虽然页面布局也会跟着改变，但是会有延迟，即只能刷新才能正常显示
+     问题2：如果页面没有滚动条将不能执行滚动条执行事件，即不能按需加载，目前想到的办法就是开始就让页面布满块，，，
+    */
+
+    window.onload = waterFall();
+
+    $(window).scroll(function() {
+      if(checkScrollSide()){
+        $('.container > div').last().removeClass('hide');
+      }
+      waterFall();
+    });
+
+    // 解决问题1
+    $(window).resize(function(){
+      clearTimeout(re);
+      /*
+      * 一开始想要在改变窗口宽度时调用waterFall()函数重新布局，但页面布局还是会出现问题
+      * var re = setTimeout(waterFall, 100);
+      * 改用刷新页面后则可正常显示，，，
+      */
+      var re = setTimeout(function(){
+        location.reload();
+      }, 100);
+    });
+
     function waterFall(){
       var $items = $('.item'),
-          w = $items.eq(0).outerWidth(),
-          cols = Math.floor(($(window).width - 30) / width),
+          w = $items.eq(0).outerWidth(true),
+          cols = Math.floor(($(window).width() - 30) / w),
           hArr = []; // 用于存储每列中的所有块相加的高度
 
       $('container').width(w*cols);
       $items.each(function(index, value){
-        var h = $items.eq(index).outerHeight();
+        var h = $items.eq(index).outerHeight(true);
         if(index < cols){
           hArr[index] = h; //第一行中的块先添加进数组
         }else {
           var minH = Math.min.apply(null, hArr),
-              minHIndex = $.inArray(minh, hArr);
+              minHIndex = $.inArray(minH, hArr); // 返回hArr中高度最短的位置
+          $(value).css({
+            'position' : 'absolute',
+            'top' : minH + 'px',
+            'left' : minHIndex*w + 'px'
+          });
+          hArr[minHIndex] += $items.eq(index).outerHeight(true);
         }
       });
-
-      console.log(width);
     }
-    waterFall();
+
+    function checkScrollSide(){
+      var $lastItem = $('.item').last(),
+          $lastItemDis = $lastItem.offset().top + Math.floor($lastItem.outerHeight()/2),
+          scrollTop = $(window).scrollTop();
+      return ($lastItemDis < scrollTop) ? true : false;
+    }
   </script>
 </body>
 </html>
