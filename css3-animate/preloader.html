@@ -43,10 +43,8 @@
             animation-delay: .8s;
         }
         @keyframes preloader1 {
-            0% { height:5px;transform:translateY(0);background:#9b59b6; }
+            0%,50%,100% { height:5px;transform:translateY(0);background:#9b59b6; }
             25% { height:30px;transform:translateY(15px);background:#3498db; }
-            50% {height:5px;transform:translateY(0px);background:#9b59b6;}
-            100% {height:5px;transform:translateY(0px);background:#9b59b6;}
         }
 
         .preloader2{
@@ -83,8 +81,7 @@
         @keyframes preloader2_1 {
             0% {transform: translateX(0) translateY(0) rotate(0deg); border-radius:0;}
             50% {transform: translateX(-20px) translateY(-10px)  rotate(-180deg); border-radius:20px;background-color:#3498db;}
-            80% {transform: translateX(0) translateY(0)  rotate(-360deg); border-radius:0;}
-            100% {transform: translateX(0) translateY(0)  rotate(-360deg); border-radius:0;}
+            80%,100% {transform: translateX(0) translateY(0)  rotate(-360deg); border-radius:0;}
         }
         @keyframes preloader2_2 {
             0% {transform: translateX(0) translateY(0) rotate(0deg); border-radius:0;}
@@ -94,8 +91,7 @@
         @keyframes preloader2_3 {
              0% {transform: translateX(0) translateY(0) rotate(0deg); border-radius:0;}
              50% {transform: translateX(-20px) translateY(10px)  rotate(-180deg); border-radius:20px;background-color:#e74c3c;}
-             80% {transform: translateX(0) translateY(0)  rotate(-360deg); border-radius:0;}
-             100% {transform: translateX(0) translateY(0)  rotate(-360deg); border-radius:0;}
+             80%,100% {transform: translateX(0) translateY(0)  rotate(-360deg); border-radius:0;}
          }
         @keyframes preloader2_4 {
             0% {transform: translateX(0) translateY(0) rotate(0deg); border-radius:0;}
@@ -127,14 +123,12 @@
             animation: preloader3_after 1.5s infinite ease-in-out;
         }
         @keyframes preloader3_before {
-            0% { transform: translateX(0) rotate(0deg); }
+            0%,100% { transform: translateX(0) rotate(0deg); }
             50% { transform: translateX(50px) scale(1.2) rotate(260deg);background:#2ecc71;border-radius:0; }
-            100% { transform: translateX(0) rotate(0deg); }
         }
         @keyframes preloader3_after {
-            0% { transform: translateX(0) rotate(0deg); }
+            0%,100% { transform: translateX(0) rotate(0deg); }
             50% { transform: translateX(-50px) scale(1.2) rotate(-260deg);background:#9b59b6;border-radius:0; }
-            100% { transform: translateX(0) rotate(0deg); }
         }
 
         .preloader4{
@@ -168,9 +162,8 @@
             animation-delay: .8s;
         }
         @keyframes preloader4 {
-            0% { opacity: .3; transform: translateY(0); box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); }
+            0%,100% { opacity: .3; transform: translateY(0); box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); }
             50% { opacity: 1; transform: translateY(-10px); box-shadow: 0 20px 3px rgba(0, 0, 0, 0.05); background: #f1c40f; }
-            100% { opacity: .3; transform: translateY(0); box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); }
         }
 
         .preloader5{
@@ -200,9 +193,8 @@
             100% { transform: rotate(360deg); }
         }
         @keyframes preloader5_after {
-            0% { border-right: 10px solid #9b59b6; border-left: 10px solid #9b59b6; }
+            0%,100% { border-right: 10px solid #9b59b6; border-left: 10px solid #9b59b6; }
             50% { border-right: 10px solid #3498db; border-left: 10px solid #3498db;}
-            100% { border-right: 10px solid #9b59b6; border-left: 10px solid #9b59b6; }
         }
 
         .preloader6{
@@ -242,9 +234,8 @@
             100% { transform: rotate(360deg); }
         }
         @keyframes preloader6_span {
-            0% { transform: scale(1); }
+            0%,100% { transform: scale(1); }
             50% { transform: scale(.5); }
-            100% { transform: scale(1); }
         }
     </style>
 </head>
