@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3动画</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 960px;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        .preloader1{
+            position: relative;
+        }
+        .preloader1 span{
+            left: 30px;
+            bottom: 0;
+            position: absolute;
+            width: 9px;
+            height: 5px;
+            background-color: #9b59b6;
+            animation: preloader1 1.5s infinite ease-in-out;
+        }
+        .preloader1 span:nth-child(2){
+            left: 41px;
+            animation-delay: .2s;
+        }
+        .preloader1 span:nth-child(3){
+            left: 52px;
+            animation-delay: .4s;
+        }
+        .preloader1 span:nth-child(4){
+            left: 63px;
+            animation-delay: .6s;
+        }
+        .preloader1 span:nth-child(5){
+            left: 74px;
+            animation-delay: .8s;
+        }
+        @keyframes preloader1 {
+            0% { height:5px;transform:translateY(0);background:#9b59b6; }
+            25% { height:30px;transform:translateY(15px);background:#3498db; }
+            50% {height:5px;transform:translateY(0px);background:#9b59b6;}
+            100% {height:5px;transform:translateY(0px);background:#9b59b6;}
+        }
+
+        .preloader2{
+            position: relative;
+            height: 40px;
+            width: 40px;
+            left: 40%;
+            text-align: center;
+        }
+        .preloader2 span{
+            display: block; /* 行内元素只有转换成块元素才能设置宽高 */
+            width: 20px;
+            height: 20px;
+            background:#9b59b6;
+            position: absolute;
+            bottom: 0;
+        }
+        .preloader2 span:nth-child(1){
+            animation: preloader2_1 1.5s infinite ease-in-out;
+        }
+        .preloader2 span:nth-child(2){
+            left: 20px;
+            animation: preloader2_2 1.5s infinite ease-in-out;
+        }
+        .preloader2 span:nth-child(3){
+            top: 0;
+            animation: preloader2_3 1.5s infinite ease-in-out;
+        }
+        .preloader2 span:nth-child(4){
+            top: 0;
+            left: 20px;
+            animation: preloader2_4 1.5s infinite ease-in-out;
+        }
+        @keyframes preloader2_1 {
+            0% {transform: translateX(0) translateY(0) rotate(0deg); border-radius:0;}
+            50% {transform: translateX(-20px) translateY(-10px)  rotate(-180deg); border-radius:20px;background-color:#3498db;}
+            80% {transform: translateX(0) translateY(0)  rotate(-360deg); border-radius:0;}
+            100% {transform: translateX(0) translateY(0)  rotate(-360deg); border-radius:0;}
+        }
+        @keyframes preloader2_2 {
+            0% {transform: translateX(0) translateY(0) rotate(0deg); border-radius:0;}
+            50% {transform: translateX(10px) translateY(10px)  rotate(-180deg); border-radius:20px;background-color:#3498db;}
+            100% {transform: translateX(0) translateY(0)  rotate(-360deg); border-radius:0;}
+        }
+        @keyframes preloader2_3 {
+             0% {transform: translateX(0) translateY(0) rotate(0deg); border-radius:0;}
+             50% {transform: translateX(-20px) translateY(10px)  rotate(-180deg); border-radius:20px;background-color:#e74c3c;}
+             80% {transform: translateX(0) translateY(0)  rotate(-360deg); border-radius:0;}
+             100% {transform: translateX(0) translateY(0)  rotate(-360deg); border-radius:0;}
+         }
+        @keyframes preloader2_4 {
+            0% {transform: translateX(0) translateY(0) rotate(0deg); border-radius:0;}
+            50% {transform: translateX(10px) translateY(-10px)  rotate(-180deg); border-radius:20px;background-color:#3498db;}
+            100% {transform: translateX(0) translateY(0)  rotate(-360deg); border-radius:0;}
+        }
+
+        .preloader3{
+            position: relative;
+            margin-top: 50px;
+        }
+        .preloader3::before{ /* 伪元素推荐使用双冒号，考虑兼容性的话则使用单冒号 */
+            content: '';
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            background:#9b59b6;
+            position: absolute;
+            animation: preloader3_before 1.5s infinite ease-in-out;
+        }
+        .preloader3::after{
+            content: '';
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            background:#2ecc71;
+            position: absolute;
+            left: 22px;
+            animation: preloader3_after 1.5s infinite ease-in-out;
+        }
+        @keyframes preloader3_before {
+            0% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(50px) scale(1.2) rotate(260deg);background:#2ecc71;border-radius:0; }
+            100% { transform: translateX(0) rotate(0deg); }
+        }
+        @keyframes preloader3_after {
+            0% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(-50px) scale(1.2) rotate(-260deg);background:#9b59b6;border-radius:0; }
+            100% { transform: translateX(0) rotate(0deg); }
+        }
+
+        .preloader4{
+            position: relative;
+        }
+        .preloader4 span{
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            background-color: #3498db;
+            opacity: .5;
+            position: absolute;
+            left: 40%;
+            animation: preloader4 1s infinite ease-in-out;
+        }
+        .preloader4 span:nth-child(2){
+            margin-left: 20px;
+            animation-delay: .2s;
+        }
+        .preloader4 span:nth-child(3){
+            margin-left: 40px;
+            animation-delay: .4s;
+        }
+        .preloader4 span:nth-child(4){
+            margin-left: 60px;
+            animation-delay: .6s;
+        }
+        .preloader4 span:nth-child(5){
+            margin-left: 80px;
+            animation-delay: .8s;
+        }
+        @keyframes preloader4 {
+            0% { opacity: .3; transform: translateY(0); box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); }
+            50% { opacity: 1; transform: translateY(-10px); box-shadow: 0 20px 3px rgba(0, 0, 0, 0.05); background: #f1c40f; }
+            100% { opacity: .3; transform: translateY(0); box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="preloader1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="preloader2">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="preloader3"></div>
+
+        <div class="preloader4">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</body>
+</html>
