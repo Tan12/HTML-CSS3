@@ -2,9 +2,158 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>css动画</title>
+    <style>
+        body{
+            margin: 0; padding: 0;
+        }
+        .container{
+            width: 960px;
+            margin: 50px auto;
+        }
+        .preloader1{
+            position: relative;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            animation: preloader1 1s infinite ease-in-out;
+        }
+        @keyframes preloader1 {
+            0% {
+                -moz-transform: perspective(120px);
+                transform: perspective(120px);
+            }
+            50% {
+                -moz-transform: perspective(120px) rotateY(180deg);
+                transform: perspective(120px) rotateY(180deg);
+            }
+            100% {
+                -moz-transform: perspective(120px) rotateX(180deg) rotateY(180deg);
+                transform: perspective(120px) rotateX(180deg) rotateY(180deg);
+            }
+        }
+
+        .preloader2{
+            position: relative;
+            margin-top: 100px;
+        }
+        .preloader2 span{
+            position: absolute;
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #333;
+            opacity: .6;
+            animation: preloader2_span 2s infinite ease-in-out;
+        }
+        .preloader2 span:nth-child(2){
+            animation-delay: -1s;
+        }
+        @keyframes preloader2_span {
+             0%, 100% { transform: scale(0); }
+             50% { transform: scale(1); }
+         }
+
+        .preloader3{
+            width: 80px;
+            height: 80px;
+            position: relative;
+            margin-top: 200px;
+        }
+        .preloader3 span{
+            width: 15px;
+            height: 15px;
+            background-color: #333;
+            position: absolute;
+            animation: preloader3_span 2s infinite ease-in-out;
+        }
+        .preloader3 span:nth-child(2){
+            animation-delay: -1s;
+        }
+        @keyframes preloader3_span {
+            25% { transform: translateX(50px) rotate(-90deg) scale(.5); }
+            50% { transform: translateX(50px) translateY(50px) rotate(-179deg); }
+            50.1% { transform: translateX(50px) translateY(50px) rotate(-180deg); }
+            75% { transform: translateY(50px) rotate(-270deg) scale(.5); }
+            100%{ transform: rotate(-360deg); }
+        }
+
+        .preloader4{
+            position: relative;
+            margin-top: 100px;
+        }
+        .preloader4 span{
+            display: block;
+            width: 6px;
+            height: 40px;
+            background-color: #333;
+            position: absolute;
+            animation: preloader4_span 1.2s infinite ease-in-out;
+        }
+        .preloader4 span:nth-child(2){
+            left: 10px;
+            animation-delay: -1.1s;
+        }
+        .preloader4 span:nth-child(3){
+            left: 20px;
+            animation-delay: -1.0s;
+        }
+        .preloader4 span:nth-child(4){
+            left: 30px;
+            animation-delay: -.9s;
+        }
+        .preloader4 span:nth-child(5){
+            left: 40px;
+            animation-delay: -.8s;
+        }
+        @keyframes preloader4_span {
+            0%,40%,100% { transform: scaleY(.4); }
+            20% { transform: scaleY(1) }
+        }
+    </style>
 </head>
 <body>
-$END$
+    <div class="container">
+        <div class="preloader1">
+            <!--
+            在chrome里面运行流畅，但在火狐里面运行不流畅,
+            看了官方文档，火狐16.010.0及以上就支持perspective()这个属性，
+            但我加了-moz-前缀，火狐浏览器运行还是那样，可能是支持的不太好。
+            -->
+        </div>
+
+        <div class="preloader2">
+            <!--
+            页面上中间颜色较深的点其实是两个span叠加的部分，
+            一开始我想的是两个span，宽高为20，即现在的一半，
+            一个颜色较浅，另一个颜色较深放上面，
+            然后下面的放大两倍，上面的延迟缩小，
+            后来一看代码，是自己想的太复杂了，哈哈~
+            果然要多看优秀代码~
+            -->
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="preloader3">
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="preloader4">
+            <!--
+            虽然之前也写过一个相同的例子，不过两者的思路不一样
+            之前的是将高度变大
+            这个是将高度变小
+            个人觉得这个写法更好，因为变化是从y轴中心开始的，不用考虑定位
+            -->
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
 </body>
 </html>
