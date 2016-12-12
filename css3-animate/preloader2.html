@@ -8,8 +8,9 @@
             margin: 0; padding: 0;
         }
         .container{
-            width: 960px;
-            margin: 50px auto;
+            position: relative;
+            left: 45%;
+            margin-top: 50px;
         }
         .preloader1{
             position: relative;
@@ -111,6 +112,76 @@
             0%,40%,100% { transform: scaleY(.4); }
             20% { transform: scaleY(1) }
         }
+
+        .preloader5{
+            position: relative;
+            width: 60px;
+            height: 60px;
+            margin-top: 250px;
+        }
+        .preloader5 > div{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .preloader5_div1 span, .preloader5_div2 span{
+            display: block;
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+            background: #333;
+            animation: preloader5_span .8s infinite ease-in-out;
+        }
+        .preloader5_div1{
+            transform: rotateZ(45deg);
+        }
+        .circle1{ top:0; left:0;}
+        .circle2{ top:0; right:0;}
+        .circle3{ bottom:0; right:0;}
+        .circle4{ bottom:0; left:0;}
+
+        .preloader5_div2 .circle1{
+            animation-delay: -.8s;
+        }
+        .preloader5_div1 .circle1{
+            animation-delay: -.7s;
+        }
+        .preloader5_div2 .circle2{
+            animation-delay: -.6s;
+        }
+        .preloader5_div1 .circle2{
+            animation-delay: -.5s;
+        }
+        .preloader5_div2 .circle3{
+            animation-delay: -.4s;
+        }
+        .preloader5_div1 .circle3{
+            animation-delay: -.3s;
+        }
+        .preloader5_div2 .circle4{
+            animation-delay: -.2s;
+        }
+        .preloader5_div1 .circle4{
+            animation-delay: -.1s;
+        }
+        @keyframes preloader5_span {
+            0%,100%{ transform: scale(0); }
+            50%{ transform: scale(1); }
+        }
+
+        .preloader6{
+            margin-top: 100px;
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            background-color: #333;
+            animation: preloader6 .8s infinite linear;
+        }
+        @keyframes preloader6 {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -154,6 +225,23 @@
             <span></span>
             <span></span>
         </div>
+
+        <div class="preloader5">
+            <div class="preloader5_div1">
+                <span class="circle1"></span>
+                <span class="circle2"></span>
+                <span class="circle3"></span>
+                <span class="circle4"></span>
+            </div>
+            <div class="preloader5_div2">
+                <span class="circle1"></span>
+                <span class="circle2"></span>
+                <span class="circle3"></span>
+                <span class="circle4"></span>
+            </div>
+        </div>
+
+        <div class="preloader6"></div>
     </div>
 </body>
 </html>
