@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>特殊符号的应用</title>
+    <style>
+        body{
+            margin: 10px 20px;
+            padding: 0;
+            background-color: silver;
+        }
+        div{
+            width: 200px;
+            height: 300px;
+            color: red;
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            float: left;
+            margin: 10px;
+            position: relative;
+            box-shadow: 0 5px 4px -4px black;
+        }
+        div:nth-of-type(even){
+            color: black;
+        }
+        div a{
+            display: block;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 5px;
+        }
+        div a::after{
+            display: block;
+            font-size: 24px;
+            line-height: 10px;
+        }
+        div a:first-child{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        div a:last-child{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform: rotateZ(180deg);
+        }
+        div:nth-child(1) a::after{
+            content: '\2665';
+        }
+        div:nth-child(2) a::after{
+            content: '\2660';
+        }
+        div:nth-child(3) a::after{
+            content: '\2666';
+        }
+        div:nth-child(4) a::after{
+            content: '\2663';
+        }
+        div span{
+            position: absolute;
+            font-size: 130px;
+            line-height: 130px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div><a>A</a><span>&#x2665;</span><a>A</a></div>
+    <div><a>A</a><span>&#x2660;</span><a>A</a></div>
+    <div><a>A</a><span>&#x2666;</span><a>A</a></div>
+    <div><a>A</a><span>&#x2663;</span><a>A</a></div>
+</body>
+</html>
