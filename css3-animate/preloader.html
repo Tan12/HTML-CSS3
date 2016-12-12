@@ -172,6 +172,80 @@
             50% { opacity: 1; transform: translateY(-10px); box-shadow: 0 20px 3px rgba(0, 0, 0, 0.05); background: #f1c40f; }
             100% { opacity: .3; transform: translateY(0); box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); }
         }
+
+        .preloader5{
+            position: relative;
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            background:#3498db;
+            top: 100px;
+            animation: preloader5 1.5s infinite linear;
+        }
+        .preloader5::after{
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 10px solid transparent;
+            border-right: 10px solid #9b59b6;
+            border-left: 10px solid #9b59b6;
+            border-radius: 50px;
+            top: -20px; left: -20px;
+            animation: preloader5_after 1.5s infinite linear;
+        }
+        @keyframes preloader5 {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); background: #2ecc71; }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes preloader5_after {
+            0% { border-right: 10px solid #9b59b6; border-left: 10px solid #9b59b6; }
+            50% { border-right: 10px solid #3498db; border-left: 10px solid #3498db;}
+            100% { border-right: 10px solid #9b59b6; border-left: 10px solid #9b59b6; }
+        }
+
+        .preloader6{
+            position: relative;
+            width: 42px;
+            height: 42px;
+            top: 100px;
+            left: 40%;
+            animation: preloader6 5s infinite linear;
+        }
+        .preloader6 span{
+            height: 20px;
+            width: 20px;
+            background-color: #3498db;
+            position: absolute;
+            display: block;
+            animation: preloader6_span 1s infinite linear;
+        }
+        .preloader6 span:nth-child(2){
+            left: 22px;
+            background: #9b59b6;
+            animation-delay: .2s;
+        }
+        .preloader6 span:nth-child(3){
+            top: 22px;
+            background: #2ecc71;
+            animation-delay: .4s;
+        }
+        .preloader6 span:nth-child(4){
+            top: 22px;
+            left: 22px;
+            background: #f1c40f;
+            animation-delay: .6s;
+        }
+        @keyframes preloader6 {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes preloader6_span {
+            0% { transform: scale(1); }
+            50% { transform: scale(.5); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -195,6 +269,15 @@
 
         <div class="preloader4">
             <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="preloader5"></div>
+
+        <div class="preloader6">
             <span></span>
             <span></span>
             <span></span>
