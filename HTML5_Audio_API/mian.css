@@ -8,3 +8,6 @@ body{
 h1{
     margin: 20px auto;
 }
+.fileWrapper{
+    transition: all .5s ease;
+}
