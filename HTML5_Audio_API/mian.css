@@ -11,3 +11,6 @@ h1{
 .fileWrapper{
     transition: all .5s ease;
 }
+#fileWrapper:hover{
+    opacity: 1!important;
+}
